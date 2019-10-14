@@ -43,27 +43,28 @@ public class CreditDisputeService extends AbstractVerticle {
 		LOGGER.info("SSOMETHING HAPPEND: ");
 		LOGGER.info("DISPUTEES: " + disputes);
 
-		// CreditDisputesProducer debtorPaymentsProducer = new CreditDisputesProducer();
-//		disputes.getDisputes().forEach(payment -> {
-//
-//			// Find the routing number and account number for the payee
-//			// payment = PayeeAccountLookupBean.enrichPayeeAccountInformation(payment);
-//
-//			try {
-//				// Payment key generated based on timestamp for the reference example
-//				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS");
-//				LocalDateTime now = LocalDateTime.now();
-//				// payment.setPaymentId("KEYFORTHBANK" + formatter.format(now));
-//
-//				// debtorPaymentsProducer.sendMessage(payment.getPaymentId(), payment);
-//				// debitPaymentRepository.addPayment(new DebitPayment(payment));
-//
-//			} catch (Exception e) {
-//				LOGGER.severe("Error publishing payment to topic");
-//				LOGGER.severe(e.getMessage());
-//				e.printStackTrace();
-//			}
-//		});
+		CreditDisputesProducer debtorPaymentsProducer = new CreditDisputesProducer();
+		disputes.getDisputes().forEach(dispute -> {
+
+			// Find the routing number and account number for the payee
+			// payment = PayeeAccountLookupBean.enrichPayeeAccountInformation(payment);
+
+			try {
+				// Payment key generated based on timestamp for the reference example
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS");
+				LocalDateTime now = LocalDateTime.now();
+				dispute.setDisputeId("DISPUTE" + formatter.format(now));
+				// payment.setPaymentId("KEYFORTHBANK" + formatter.format(now));
+
+				debtorPaymentsProducer.sendMessage(dispute.getDisputeId(), dispute);
+				// debitPaymentRepository.addPayment(new DebitPayment(payment));
+
+			} catch (Exception e) {
+				LOGGER.severe("Error publishing payment to topic");
+				LOGGER.severe(e.getMessage());
+				e.printStackTrace();
+			}
+		});
 
 		HttpServerResponse response = routingContext.response();
 		response.putHeader(CONTENT_TYPE, "application/json; charset=utf-8");
