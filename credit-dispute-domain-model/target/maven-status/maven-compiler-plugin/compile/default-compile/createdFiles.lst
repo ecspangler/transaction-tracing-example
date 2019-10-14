@@ -1,5 +1,0 @@
-org/example/domain/dispute/Disputes.class
-org/example/domain/dispute/serde/DisputeSerde.class
-org/example/domain/dispute/serde/DisputeSerializer.class
-org/example/domain/dispute/serde/DisputeDeserializer.class
-org/example/domain/dispute/Dispute.class
