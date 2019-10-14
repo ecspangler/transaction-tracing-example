@@ -42,15 +42,17 @@
       <groupId>org.example</groupId>
       <artifactId>credit-dispute-domain-model</artifactId>
       <version>1.0.0.0</version>
-    </dependency>
-
+    </dependency>   
+    
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-core</artifactId>
+      <version>${vertx.version}</version>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-web</artifactId>
+      <version>${vertx.version}</version>
     </dependency>
 
     <dependency>
