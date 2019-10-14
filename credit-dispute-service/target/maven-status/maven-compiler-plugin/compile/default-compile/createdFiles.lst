@@ -1,5 +1,3 @@
-rtp/demo/debtor/payments/producer/DebtorPaymentsProducerConfig.class
-rtp/demo/debtor/payments/service/DebtorPaymentService.class
-rtp/demo/debtor/payments/service/TransactionsRequest.class
-rtp/demo/debtor/payments/producer/DebtorPaymentsProducer.class
-rtp/demo/debtor/payments/beans/PayeeAccountLookupBean.class
+org/example/credit/dispute/service/CreditDisputeService.class
+org/example/credit/dispute/producer/CreditDisputesProducerConfig.class
+org/example/credit/dispute/producer/CreditDisputesProducer.class

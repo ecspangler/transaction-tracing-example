@@ -10,9 +10,7 @@
     <version>1.0.0.0</version>
   </parent>
 
-  <groupId>org.example</groupId>
   <artifactId>credit-dispute-service</artifactId>
-  <version>1.0.0.0</version>
   <packaging>jar</packaging>
 
   <name>Credit Card Dispute Service</name>
@@ -49,12 +47,10 @@
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-core</artifactId>
-      <version>${vertx.version}</version>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-web</artifactId>
-      <version>${vertx.version}</version>
     </dependency>
 
     <dependency>

@@ -5,11 +5,11 @@ import java.util.logging.Logger;
 
 import org.example.domain.dispute.Dispute;
 
-public class CreateCreditDisputeBean {
+public class CreditDisputeDataBean {
 
-	private static final Logger LOG = Logger.getLogger(CreateCreditDisputeBean.class.getName());
+	private static final Logger LOG = Logger.getLogger(CreditDisputeDataBean.class.getName());
 
-	// Placeholder method for fraud evaluation or call to fraud system
+	// Placeholder method 
 	public Dispute evaluate(Dispute dispute) {
 
 		LOG.info("Dispute: " + dispute);

@@ -6,18 +6,20 @@
     "kind" : "Service",
     "metadata" : {
       "annotations" : {
+        "fabric8.io/git-commit" : "236a3912baa01677eb32959430e17a4f2dc0c786",
         "fabric8.io/iconUrl" : "img/icons/camel.svg",
-        "prometheus.io/port" : "9779",
-        "prometheus.io/scrape" : "true"
+        "fabric8.io/git-branch" : "master",
+        "prometheus.io/scrape" : "true",
+        "prometheus.io/port" : "9779"
       },
       "labels" : {
         "expose" : "true",
-        "app" : "credit-dispute-create-service",
+        "app" : "credit-dispute-reg-z-service",
         "provider" : "fabric8",
         "version" : "1.0.0.0",
         "group" : "org.example"
       },
-      "name" : "credit-dispute-create-service"
+      "name" : "credit-dispute-reg-z-service"
     },
     "spec" : {
       "ports" : [ {
@@ -27,7 +29,7 @@
         "targetPort" : 8080
       } ],
       "selector" : {
-        "app" : "credit-dispute-create-service",
+        "app" : "credit-dispute-reg-z-service",
         "provider" : "fabric8",
         "group" : "org.example"
       }
@@ -37,22 +39,24 @@
     "kind" : "DeploymentConfig",
     "metadata" : {
       "annotations" : {
+        "fabric8.io/git-commit" : "236a3912baa01677eb32959430e17a4f2dc0c786",
         "fabric8.io/iconUrl" : "img/icons/camel.svg",
-        "fabric8.io/metrics-path" : "dashboard/file/camel-routes.json/?var-project=credit-dispute-create-service&var-version=1.0.0.0"
+        "fabric8.io/git-branch" : "master",
+        "fabric8.io/metrics-path" : "dashboard/file/camel-routes.json/?var-project=credit-dispute-reg-z-service&var-version=1.0.0.0"
       },
       "labels" : {
-        "app" : "credit-dispute-create-service",
+        "app" : "credit-dispute-reg-z-service",
         "provider" : "fabric8",
         "version" : "1.0.0.0",
         "group" : "org.example"
       },
-      "name" : "credit-dispute-create-service"
+      "name" : "credit-dispute-reg-z-service"
     },
     "spec" : {
       "replicas" : 1,
       "revisionHistoryLimit" : 2,
       "selector" : {
-        "app" : "credit-dispute-create-service",
+        "app" : "credit-dispute-reg-z-service",
         "provider" : "fabric8",
         "group" : "org.example"
       },
@@ -65,11 +69,13 @@
       "template" : {
         "metadata" : {
           "annotations" : {
+            "fabric8.io/git-commit" : "236a3912baa01677eb32959430e17a4f2dc0c786",
             "fabric8.io/iconUrl" : "img/icons/camel.svg",
-            "fabric8.io/metrics-path" : "dashboard/file/camel-routes.json/?var-project=credit-dispute-create-service&var-version=1.0.0.0"
+            "fabric8.io/git-branch" : "master",
+            "fabric8.io/metrics-path" : "dashboard/file/camel-routes.json/?var-project=credit-dispute-reg-z-service&var-version=1.0.0.0"
           },
           "labels" : {
-            "app" : "credit-dispute-create-service",
+            "app" : "credit-dispute-reg-z-service",
             "provider" : "fabric8",
             "version" : "1.0.0.0",
             "group" : "org.example"
@@ -118,7 +124,7 @@
                 }
               }
             } ],
-            "image" : "example/credit-dispute-create-service:1.0.0.0",
+            "image" : "example/credit-dispute-reg-z-service:1.0.0.0",
             "imagePullPolicy" : "IfNotPresent",
             "livenessProbe" : {
               "httpGet" : {
@@ -176,12 +182,12 @@
     "metadata" : {
       "labels" : {
         "expose" : "true",
-        "app" : "credit-dispute-create-service",
+        "app" : "credit-dispute-reg-z-service",
         "provider" : "fabric8",
         "version" : "1.0.0.0",
         "group" : "org.example"
       },
-      "name" : "credit-dispute-create-service"
+      "name" : "credit-dispute-reg-z-service"
     },
     "spec" : {
       "port" : {
@@ -189,7 +195,7 @@
       },
       "to" : {
         "kind" : "Service",
-        "name" : "credit-dispute-create-service"
+        "name" : "credit-dispute-reg-z-service"
       }
     }
   } ]
