@@ -7,8 +7,9 @@ import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.BodyHandler;
 import io.vertx.ext.web.handler.StaticHandler;
-import org.example.credit.dispute.producer.CreditDisputeProducer;
+import org.example.credit.dispute.producer.CreditDisputesProducer;
 import org.example.domain.dispute.Dispute;
+import org.example.domain.dispute.Disputes;
 
 import static io.vertx.core.http.HttpHeaders.CONTENT_TYPE;
 
@@ -36,22 +37,21 @@ public class CreditDisputeService extends AbstractVerticle {
 
 	private void createDisputes(RoutingContext routingContext) {
 		Disputes disputes = routingContext.getBodyAsJson().mapTo(Disputes.class);
-		LOGGER.info("Creating disputes: " + payments);
+		LOGGER.info("Creating disputes: " + disputes);
 
 		CreditDisputesProducer creditDisputesProducer = new CreditDisputesProducer();
-		payments.getPayments().forEach(payment -> {
+		disputes.getDisputes().forEach(dispute -> {
 
 			try {
-				// Payment key generated based on timestamp for the reference example
+				// Dispute key generated based on timestamp for the reference example
 				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS");
 				LocalDateTime now = LocalDateTime.now();
 				dispute.setDisputeId("DISPUTE" + formatter.format(now));
 
-				debtorPaymentsProducer.sendMessage(payment.getPaymentId(), payment);
-				debitPaymentRepository.addPayment(new DebitPayment(payment));
+				creditDisputesProducer.sendMessage(dispute.getDisputeId(), dispute);
 
 			} catch (Exception e) {
-				LOGGER.severe("Error publishing payment to topic");
+				LOGGER.severe("Error publishing dispute to topic");
 				LOGGER.severe(e.getMessage());
 				e.printStackTrace();
 			}
@@ -61,7 +61,7 @@ public class CreditDisputeService extends AbstractVerticle {
 		response.putHeader(CONTENT_TYPE, "application/json; charset=utf-8");
 		response.putHeader("Access-Control-Allow-Origin", "*");
 
-		response.end(Json.encode(payments));
+		response.end(Json.encode(disputes));
 	}
 
 }

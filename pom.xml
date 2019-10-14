@@ -14,12 +14,13 @@
   <modules>
     <module>credit-dispute-domain-model</module>
     <module>credit-dispute-create-service</module>
-    <!--<module>credit-dispute-update-service</module>
+    <module>credit-dispute-update-service</module>
     <module>credit-dispute-reg-z-service</module>
     <module>credit-dispute-data-service</module>
     <module>credit-dispute-customer-notify-service</module>
     <module>credit-dispute-merchant-notify-service</module>
-    <module>credit-dispute-transaction-case</module>-->
+    <module>credit-dispute-service</module>
+    <!--<module>credit-dispute-transaction-case</module>-->
   </modules>
 
   <properties>
