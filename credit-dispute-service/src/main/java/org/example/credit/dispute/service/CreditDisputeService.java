@@ -6,9 +6,7 @@ import io.vertx.core.json.Json;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.BodyHandler;
-import io.vertx.ext.web.handler.StaticHandler;
 import org.example.credit.dispute.producer.CreditDisputesProducer;
-import org.example.domain.dispute.Dispute;
 import org.example.domain.dispute.Disputes;
 
 import static io.vertx.core.http.HttpHeaders.CONTENT_TYPE;
@@ -28,8 +26,6 @@ public class CreditDisputeService extends AbstractVerticle {
 		router.route().handler(BodyHandler.create());
 
 		router.post("/disputes-service/disputes").handler(this::createDisputes);
-
-		router.get("/*").handler(StaticHandler.create());
 
 		vertx.createHttpServer().requestHandler(router::accept).listen(8080);
 		LOGGER.info("THE HTTP APPLICATION HAS STARTED");
