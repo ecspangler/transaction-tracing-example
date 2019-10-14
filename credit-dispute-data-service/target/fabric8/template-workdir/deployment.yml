@@ -1,0 +1,35 @@
+spec:
+  template:
+    spec:
+      containers:
+        -
+          resources:
+            requests:
+              cpu: "0.1"
+              memory: 256Mi
+            limits:
+              cpu: "0.5"
+              memory: 256Mi
+          env:
+          - name: SPRING_APPLICATION_JSON
+            value: '{"server":{"undertow":{"io-threads":1, "worker-threads":2 }}}'
+          - name: BOOTSTRAP_SERVERS
+            value: "demo-cluster-kafka-bootstrap:9092"
+          - name: DISPUTE_SUBMITTED_TOPIC
+            value: credit-dispute-submitted
+          - name: DISPUTE_RESOLVED_TOPIC
+            value: credit-dispute-resolved
+          - name: CUSTOMER_CONTACT_TOPIC
+            value: credit-dispute-customer-contact
+          - name: CUSTOMER_MERCHANT_TOPIC
+            value: credit-dispute-merchant-contact
+          - name: CONSUMER_MAX_POLL_RECORDS
+            value: 500
+          - name: CONSUMER_COUNT
+            value: 1
+          - name: CONSUMER_SEEK_TO
+            value: end
+          - name: CONSUMER_GROUP
+            value: credit-dispute-create-service
+          - name: ACKS
+            value: 1

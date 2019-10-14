@@ -1,0 +1,5 @@
+rtp/demo/debtor/payments/producer/DebtorPaymentsProducerConfig.class
+rtp/demo/debtor/payments/service/DebtorPaymentService.class
+rtp/demo/debtor/payments/service/TransactionsRequest.class
+rtp/demo/debtor/payments/producer/DebtorPaymentsProducer.class
+rtp/demo/debtor/payments/beans/PayeeAccountLookupBean.class

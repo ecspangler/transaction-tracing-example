@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Route
+metadata:
+  name: rtp-debtor-payment-service
+spec:
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: rtp-debtor-payment-service
