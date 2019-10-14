@@ -10,7 +10,7 @@ import org.example.credit.dispute.beans.CreditDisputeDataBean;
 import org.example.domain.dispute.serde.DisputeDeserializer;
 
 @Component
-public class CreateCreditDisputeDataRouteBuilder extends RouteBuilder {
+public class CreditDisputeDataRouteBuilder extends RouteBuilder {
 
 	private static final Logger LOG = LoggerFactory.getLogger(CreditDisputeDataRouteBuilder.class);
 

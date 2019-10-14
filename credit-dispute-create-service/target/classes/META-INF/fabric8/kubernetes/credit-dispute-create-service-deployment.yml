@@ -3,7 +3,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   annotations:
-    fabric8.io/git-commit: 236a3912baa01677eb32959430e17a4f2dc0c786
+    fabric8.io/git-commit: 2a5cc79d61437ad862254b714c19901ada86c0c6
     fabric8.io/iconUrl: img/icons/camel.svg
     fabric8.io/git-branch: master
     fabric8.io/metrics-path: dashboard/file/camel-routes.json/?var-project=credit-dispute-create-service&var-version=1.0.0.0
@@ -24,7 +24,7 @@ spec:
   template:
     metadata:
       annotations:
-        fabric8.io/git-commit: 236a3912baa01677eb32959430e17a4f2dc0c786
+        fabric8.io/git-commit: 2a5cc79d61437ad862254b714c19901ada86c0c6
         fabric8.io/iconUrl: img/icons/camel.svg
         fabric8.io/git-branch: master
         fabric8.io/metrics-path: dashboard/file/camel-routes.json/?var-project=credit-dispute-create-service&var-version=1.0.0.0

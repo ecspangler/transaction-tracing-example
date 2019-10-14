@@ -6,7 +6,7 @@
     "kind" : "Service",
     "metadata" : {
       "annotations" : {
-        "fabric8.io/git-commit" : "236a3912baa01677eb32959430e17a4f2dc0c786",
+        "fabric8.io/git-commit" : "2a5cc79d61437ad862254b714c19901ada86c0c6",
         "fabric8.io/iconUrl" : "img/icons/camel.svg",
         "fabric8.io/git-branch" : "master",
         "prometheus.io/scrape" : "true",
@@ -39,7 +39,7 @@
     "kind" : "Deployment",
     "metadata" : {
       "annotations" : {
-        "fabric8.io/git-commit" : "236a3912baa01677eb32959430e17a4f2dc0c786",
+        "fabric8.io/git-commit" : "2a5cc79d61437ad862254b714c19901ada86c0c6",
         "fabric8.io/iconUrl" : "img/icons/camel.svg",
         "fabric8.io/git-branch" : "master",
         "fabric8.io/metrics-path" : "dashboard/file/camel-routes.json/?var-project=credit-dispute-merchant-notify-service&var-version=1.0.0.0"
@@ -65,7 +65,7 @@
       "template" : {
         "metadata" : {
           "annotations" : {
-            "fabric8.io/git-commit" : "236a3912baa01677eb32959430e17a4f2dc0c786",
+            "fabric8.io/git-commit" : "2a5cc79d61437ad862254b714c19901ada86c0c6",
             "fabric8.io/iconUrl" : "img/icons/camel.svg",
             "fabric8.io/git-branch" : "master",
             "fabric8.io/metrics-path" : "dashboard/file/camel-routes.json/?var-project=credit-dispute-merchant-notify-service&var-version=1.0.0.0"
@@ -86,17 +86,11 @@
               "name" : "BOOTSTRAP_SERVERS",
               "value" : "demo-cluster-kafka-bootstrap:9092"
             }, {
-              "name" : "DISPUTE_SUBMITTED_TOPIC",
-              "value" : "credit-dispute-submitted"
-            }, {
-              "name" : "DISPUTE_RESOLVED_TOPIC",
-              "value" : "credit-dispute-resolved"
-            }, {
-              "name" : "CUSTOMER_CONTACT_TOPIC",
-              "value" : "credit-dispute-customer-contact"
-            }, {
-              "name" : "CUSTOMER_MERCHANT_TOPIC",
+              "name" : "DISPUTE_MERCHANT_CONTACT_TOPIC",
               "value" : "credit-dispute-merchant-contact"
+            }, {
+              "name" : "DISPUTE_MERCHANT_NOTIFIED_TOPIC",
+              "value" : "credit-dispute-merchant-notified"
             }, {
               "name" : "CONSUMER_MAX_POLL_RECORDS",
               "value" : "500"
@@ -108,7 +102,7 @@
               "value" : "end"
             }, {
               "name" : "CONSUMER_GROUP",
-              "value" : "credit-dispute-create-service"
+              "value" : "credit-dispute-merchant-notify-service"
             }, {
               "name" : "ACKS",
               "value" : "1"

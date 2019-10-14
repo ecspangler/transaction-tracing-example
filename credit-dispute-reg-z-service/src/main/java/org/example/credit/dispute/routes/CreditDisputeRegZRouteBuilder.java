@@ -6,13 +6,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.example.domain.dispute.serde.DisputeSerializer;
-import org.example.credit.dispute.beans.CreateCreditDisputeBean;
+import org.example.credit.dispute.beans.CreditDisputeRegZBean;
 import org.example.domain.dispute.serde.DisputeDeserializer;
 
 @Component
 public class CreditDisputeRegZRouteBuilder extends RouteBuilder {
 
-	private static final Logger LOG = LoggerFactory.getLogger(CCreditDisputeRegZRouteBuilder.class);
+	private static final Logger LOG = LoggerFactory.getLogger(CreditDisputeRegZRouteBuilder.class);
 
 	private String kafkaBootstrap = System.getenv("BOOTSTRAP_SERVERS");
 

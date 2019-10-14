@@ -1,3 +1,3 @@
-org/example/credit/dispute/routes/CreateCreditDisputeRouteBuilder.class
 org/example/credit/dispute/application/Application.class
-org/example/credit/dispute/beans/CreateCreditDisputeBean.class
+org/example/credit/dispute/routes/CreditDisputeDataRouteBuilder.class
+org/example/credit/dispute/beans/CreditDisputeDataBean.class

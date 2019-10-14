@@ -6,7 +6,7 @@ items:
   kind: Service
   metadata:
     annotations:
-      fabric8.io/git-commit: 236a3912baa01677eb32959430e17a4f2dc0c786
+      fabric8.io/git-commit: 2a5cc79d61437ad862254b714c19901ada86c0c6
       fabric8.io/iconUrl: img/icons/camel.svg
       fabric8.io/git-branch: master
       prometheus.io/scrape: "true"
@@ -32,7 +32,7 @@ items:
   kind: DeploymentConfig
   metadata:
     annotations:
-      fabric8.io/git-commit: 236a3912baa01677eb32959430e17a4f2dc0c786
+      fabric8.io/git-commit: 2a5cc79d61437ad862254b714c19901ada86c0c6
       fabric8.io/iconUrl: img/icons/camel.svg
       fabric8.io/git-branch: master
       fabric8.io/metrics-path: dashboard/file/camel-routes.json/?var-project=credit-dispute-reg-z-service&var-version=1.0.0.0
@@ -56,7 +56,7 @@ items:
     template:
       metadata:
         annotations:
-          fabric8.io/git-commit: 236a3912baa01677eb32959430e17a4f2dc0c786
+          fabric8.io/git-commit: 2a5cc79d61437ad862254b714c19901ada86c0c6
           fabric8.io/iconUrl: img/icons/camel.svg
           fabric8.io/git-branch: master
           fabric8.io/metrics-path: dashboard/file/camel-routes.json/?var-project=credit-dispute-reg-z-service&var-version=1.0.0.0
@@ -74,12 +74,8 @@ items:
             value: demo-cluster-kafka-bootstrap:9092
           - name: DISPUTE_SUBMITTED_TOPIC
             value: credit-dispute-submitted
-          - name: DISPUTE_RESOLVED_TOPIC
-            value: credit-dispute-resolved
-          - name: CUSTOMER_CONTACT_TOPIC
-            value: credit-dispute-customer-contact
-          - name: CUSTOMER_MERCHANT_TOPIC
-            value: credit-dispute-merchant-contact
+          - name: DISPUTE_REG_Z_CALCULATED_TOPIC
+            value: credit-dispute-reg-z-calculated
           - name: CONSUMER_MAX_POLL_RECORDS
             value: "500"
           - name: CONSUMER_COUNT
@@ -87,7 +83,7 @@ items:
           - name: CONSUMER_SEEK_TO
             value: end
           - name: CONSUMER_GROUP
-            value: credit-dispute-create-service
+            value: credit-dispute-reg-z-service
           - name: ACKS
             value: "1"
           - name: KUBERNETES_NAMESPACE

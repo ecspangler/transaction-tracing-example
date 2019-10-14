@@ -17,12 +17,6 @@ spec:
             value: "demo-cluster-kafka-bootstrap:9092"
           - name: DISPUTE_SUBMITTED_TOPIC
             value: credit-dispute-submitted
-          - name: DISPUTE_RESOLVED_TOPIC
-            value: credit-dispute-resolved
-          - name: CUSTOMER_CONTACT_TOPIC
-            value: credit-dispute-customer-contact
-          - name: CUSTOMER_MERCHANT_TOPIC
-            value: credit-dispute-merchant-contact
           - name: CONSUMER_MAX_POLL_RECORDS
             value: 500
           - name: CONSUMER_COUNT
@@ -30,6 +24,6 @@ spec:
           - name: CONSUMER_SEEK_TO
             value: end
           - name: CONSUMER_GROUP
-            value: credit-dispute-create-service
+            value: credit-dispute-data-service
           - name: ACKS
             value: 1
