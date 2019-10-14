@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+oc project credit-dispute-example
+
 # --- Deploy the Services
 mvn --non-recursive clean install
 for dependency in \
