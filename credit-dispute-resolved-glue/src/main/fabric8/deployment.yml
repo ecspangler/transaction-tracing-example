@@ -1,0 +1,29 @@
+spec:
+  template:
+    spec:
+      containers:
+        -
+#          resources:
+#            requests:
+#              cpu: "0.2"
+#              memory: 256Mi
+#            limits:
+#              cpu: "1.0"
+#              memory: 256Mi
+          env:
+            - name: BOOTSTRAP_SERVERS
+              value: "demo-cluster-kafka-bootstrap:9092"
+            - name: TARGET_TOPIC
+              value: credit-dispute-resolved
+            - name: CASE_ID_GLUE
+              value: credit-dispute-case-list
+            - name: APPLICATION_ID
+              value: credit-dispute-resolved-glue
+            - name: CLIENT_ID
+              value: credit-dispute-resolved-glue
+            - name: BC_PATH
+              value: http://myapp-kieserver-credit-dispute-example.apps.nyc-bac5.open.redhat.com
+            - name: BC_USER_NAME
+              value: executionUser
+            - name: BC_PASSWORD
+              value: RedHat
