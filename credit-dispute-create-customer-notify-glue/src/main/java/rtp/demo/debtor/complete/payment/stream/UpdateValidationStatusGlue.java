@@ -14,7 +14,6 @@ import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import org.jboss.resteasy.client.jaxrs.engines.URLConnectionEngine;
-import rtp.demo.creditor.domain.payments.Payment;
 import rtp.demo.debtor.complete.payment.pojo.BusinessCentralTaskInterface;
 
 import javax.ws.rs.client.WebTarget;
@@ -39,7 +38,7 @@ public class UpdateValidationStatusGlue {
 	private KafkaStreams streams;
 
 	public UpdateValidationStatusGlue() {
-		LOG.info("Configuring Debtor Payments Stream");
+		LOG.info("Configuring Stream");
 
 		streamsConfiguration.put(StreamsConfig.APPLICATION_ID_CONFIG, applicationId);
 		streamsConfiguration.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
@@ -90,7 +89,6 @@ public class UpdateValidationStatusGlue {
 		tgt.register(new BasicAuthentication(bcUserName, bcPassword));
 		BusinessCentralTaskInterface customerProxy = tgt.proxy(BusinessCentralTaskInterface.class);
 		String[] val = value.split("\\|");
-		Payment payment = new Gson().fromJson(val[1], Payment.class);
 		customerProxy.triggerAdhocTask(new Gson().fromJson(val[0], String.class),
 				"{\"caseFile_createCaseCustomerNotifyComplete\":" + "true}");
 	}
