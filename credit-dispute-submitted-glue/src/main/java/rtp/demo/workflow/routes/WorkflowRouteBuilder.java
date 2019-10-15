@@ -36,8 +36,8 @@ public class WorkflowRouteBuilder extends RouteBuilder {
 				+ consumerMaxPollRecords + "&consumersCount=" + consumerCount + "&seekTo=" + consumerSeekTo
 				+ "&groupId=" + consumerGroup
 				+ "&valueDeserializer=" + DisputeDeserializer.class.getName()) .routeId("FromKafka")
-				.setHeader("disputeMsg",simple("${body.grpHdr.msgId}"))
-						.log("\n/// Checking my glue >>> ${body}:::::::${body.grpHdr.msgId}")
+				.setHeader("disputeMsg",simple("${body.disputeId}"))
+						.log("\n/// Checking my glue >>> ${body}:::::::${body.disputeId}")
 				        .bean(ParseMessage.class,"process")
 						.log("parsed message for case ${body}")
 				        .to(startCase).log("To Direct BC${header.disputeMsg}")
