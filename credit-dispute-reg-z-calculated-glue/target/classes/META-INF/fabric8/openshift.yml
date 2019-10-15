@@ -1,0 +1,135 @@
+---
+apiVersion: v1
+kind: List
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      fabric8.io/git-commit: 8b5061cbb9b99956cbd13ccfce7dc1d854e9e387
+      fabric8.io/iconUrl: img/icons/spring-boot.svg
+      fabric8.io/git-branch: master
+      prometheus.io/scrape: "true"
+      prometheus.io/port: "9779"
+    labels:
+      expose: "true"
+      app: credit-dispute-reg-z-calculated-glue
+      provider: fabric8
+      version: 1.0.0.0
+      group: org.example
+    name: credit-dispute-reg-z-calculated-glue
+  spec:
+    ports:
+    - name: http
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: credit-dispute-reg-z-calculated-glue
+      provider: fabric8
+      group: org.example
+- apiVersion: apps.openshift.io/v1
+  kind: DeploymentConfig
+  metadata:
+    annotations:
+      fabric8.io/git-commit: 8b5061cbb9b99956cbd13ccfce7dc1d854e9e387
+      fabric8.io/iconUrl: img/icons/spring-boot.svg
+      fabric8.io/git-branch: master
+      fabric8.io/metrics-path: dashboard/file/kubernetes-pods.json/?var-project=credit-dispute-reg-z-calculated-glue&var-version=1.0.0.0
+    labels:
+      app: credit-dispute-reg-z-calculated-glue
+      provider: fabric8
+      version: 1.0.0.0
+      group: org.example
+    name: credit-dispute-reg-z-calculated-glue
+  spec:
+    replicas: 1
+    revisionHistoryLimit: 2
+    selector:
+      app: credit-dispute-reg-z-calculated-glue
+      provider: fabric8
+      group: org.example
+    strategy:
+      rollingParams:
+        timeoutSeconds: 3600
+      type: Rolling
+    template:
+      metadata:
+        annotations:
+          fabric8.io/git-commit: 8b5061cbb9b99956cbd13ccfce7dc1d854e9e387
+          fabric8.io/iconUrl: img/icons/spring-boot.svg
+          fabric8.io/git-branch: master
+          fabric8.io/metrics-path: dashboard/file/kubernetes-pods.json/?var-project=credit-dispute-reg-z-calculated-glue&var-version=1.0.0.0
+        labels:
+          app: credit-dispute-reg-z-calculated-glue
+          provider: fabric8
+          version: 1.0.0.0
+          group: org.example
+      spec:
+        containers:
+        - env:
+          - name: BOOTSTRAP_SERVERS
+            value: demo-cluster-kafka-bootstrap:9092
+          - name: TARGET_TOPIC
+            value: credit-dispute-reg-z-calculated
+          - name: CASE_ID_GLUE
+            value: credit-dispute-case-list
+          - name: APPLICATION_ID
+            value: credit-dispute-reg-z-calculated-glue
+          - name: CLIENT_ID
+            value: credit-dispute-reg-z-calculated-glue
+          - name: BC_PATH
+            value: http://myapp-kieserver-credit-dispute-example.apps.nyc-bac5.open.redhat.com
+          - name: BC_USER_NAME
+            value: executionUser
+          - name: BC_PASSWORD
+            value: RedHat
+          - name: KUBERNETES_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          image: example/credit-dispute-reg-z-calculated-glue:1.0.0.0
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 180
+          name: spring-boot
+          ports:
+          - containerPort: 8080
+            name: http
+            protocol: TCP
+          - containerPort: 9779
+            name: prometheus
+            protocol: TCP
+          - containerPort: 8778
+            name: jolokia
+            protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 10
+          securityContext:
+            privileged: false
+    triggers:
+    - type: ConfigChange
+- apiVersion: route.openshift.io/v1
+  kind: Route
+  metadata:
+    labels:
+      expose: "true"
+      app: credit-dispute-reg-z-calculated-glue
+      provider: fabric8
+      version: 1.0.0.0
+      group: org.example
+    name: credit-dispute-reg-z-calculated-glue
+  spec:
+    port:
+      targetPort: 8080
+    to:
+      kind: Service
+      name: credit-dispute-reg-z-calculated-glue
