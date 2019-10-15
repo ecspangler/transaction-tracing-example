@@ -5,8 +5,8 @@ import org.apache.camel.component.kafka.KafkaComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import rtp.demo.workflow.transformer.ParseFITToFICustomerCreditTransferMsg;
-import rtp.message.model.serde.FIToFICustomerCreditTransferV06Deserializer;
+import rtp.demo.workflow.transformer.ParseMessage;
+import org.example.domain.dispute.serde.DisputeDeserializer;
 
 @Component
 public class WorkflowRouteBuilder extends RouteBuilder {
