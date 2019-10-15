@@ -30,6 +30,6 @@ spec:
           - name: CONSUMER_SEEK_TO
             value: end
           - name: CONSUMER_GROUP
-            value: credit-dispute-create-service
+            value: credit-dispute-update-service
           - name: ACKS
             value: 1
