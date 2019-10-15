@@ -1,0 +1,31 @@
+spec:
+  template:
+    spec:
+      containers:
+        -
+          resources:
+            requests:
+              cpu: "0.1"
+              memory: 256Mi
+            limits:
+              cpu: "0.5"
+              memory: 256Mi
+          env:
+          - name: SPRING_APPLICATION_JSON
+            value: '{"server":{"undertow":{"io-threads":1, "worker-threads":2 }}}'
+          - name: BOOTSTRAP_SERVERS
+            value: "demo-cluster-kafka-bootstrap:9092"
+          - name: TARGET_TOPIC
+            value: credit-dispute-submitted
+          - name: CONSUMER_MAX_POLL_RECORDS
+            value: 500
+          - name: CONSUMER_COUNT
+            value: 1
+          - name: CONSUMER_SEEK_TO
+            value: end
+          - name: CONSUMER_GROUP
+            value: credit-dispute-submitted-glue
+          - name: ACKS
+            value: 1
+          - name: BC_HOST
+            value: host=executionUser:RedHat@myapp-kieserver-credit-dispute-example.apps.nyc-bac5.open.redhat.com
